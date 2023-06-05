@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  font-size: 36px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(53, 53, 53);
+}
+
+.sky {
+  overflow: hidden;
+  position: relative;
+  height: 60vh;
+  background-color: rgb(43, 143, 189);
+  -webkit-animation: night 10s linear infinite;
+          animation: night 10s linear infinite;
+}
+.sky .sun {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 120px;
+  height: 120px;
+  background-color: gold;
+  border-radius: 50%;
+  box-shadow: 0 0 50px gold;
+  -webkit-animation: sunlight 1s infinite, sunset 10s linear infinite backwards;
+          animation: sunlight 1s infinite, sunset 10s linear infinite backwards;
+  animation-direction: sunlight reverse, sunset reverse;
+}
+@-webkit-keyframes sunlight {
+  from {
+    box-shadow: 0 0 50px;
+  }
+  to {
+    box-shadow: 0 0 110px;
+  }
+}
+@keyframes sunlight {
+  from {
+    box-shadow: 0 0 50px;
+  }
+  to {
+    box-shadow: 0 0 110px;
+  }
+}
+@-webkit-keyframes sunset {
+  0% {
+    top: 50px;
+  }
+  50% {
+    top: 900px;
+    height: 80px;
+    width: 80px;
+    background-color: rgba(255, 217, 0, 0.445);
+    box-shadow: 0 0 20px gold;
+  }
+  100% {
+    top: 50px;
+  }
+}
+@keyframes sunset {
+  0% {
+    top: 50px;
+  }
+  50% {
+    top: 900px;
+    height: 80px;
+    width: 80px;
+    background-color: rgba(255, 217, 0, 0.445);
+    box-shadow: 0 0 20px gold;
+  }
+  100% {
+    top: 50px;
+  }
+}
+@-webkit-keyframes night {
+  0% {
+    background-color: rgb(43, 143, 189);
+  }
+  50% {
+    background-color: rgb(24, 23, 23);
+  }
+  100% {
+    background-color: rgb(43, 143, 189);
+  }
+}
+@keyframes night {
+  0% {
+    background-color: rgb(43, 143, 189);
+  }
+  50% {
+    background-color: rgb(24, 23, 23);
+  }
+  100% {
+    background-color: rgb(43, 143, 189);
+  }
+}
+
+.ground {
+  position: relative;
+  bottom: 0;
+  height: 40vh;
+}
+.ground .grass {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  background-color: rgb(68, 109, 40);
+}
+.ground .road {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 140px;
+  background-color: gray;
+}
+
+.car {
+  position: absolute;
+  top: -80px;
+  left: 200px;
+  width: 250px;
+  height: 170px;
+  background-color: rgb(196, 46, 20);
+  border-radius: 25px;
+  -webkit-animation: drive-car 5s ease-in infinite;
+          animation: drive-car 5s ease-in infinite;
+}
+.car .window {
+  position: absolute;
+  top: 10px;
+  width: 90px;
+  height: 100px;
+  background-color: rgb(11, 61, 211);
+  border: 1px solid rgba(0, 0, 0, 0.781);
+}
+.car .front-window {
+  right: 0%;
+  border-top-right-radius: 15px;
+}
+.car .back-window {
+  left: 0%;
+  border-top-left-radius: 15px;
+}
+.car .wheels {
+  position: absolute;
+  bottom: -30px;
+  width: 80px;
+  height: 80px;
+  background-color: black;
+  border-radius: 50%;
+  border: 3px dashed rgb(255, 255, 255);
+  z-index: 1;
+  -webkit-animation: wheels 5s linear infinite;
+          animation: wheels 5s linear infinite;
+}
+.car .back-wheel {
+  left: 5px;
+}
+.car .front-wheel {
+  right: 5px;
+}
+
+.car::after,
+.car::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 300px;
+  height: 100px;
+  background-color: rgb(196, 46, 20);
+}
+
+.car::after {
+  right: -40px;
+  border-top-right-radius: 20px;
+}
+
+.car::before {
+  left: -50px;
+}
+
+@-webkit-keyframes drive-car {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 1500px;
+  }
+}
+
+@keyframes drive-car {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 1500px;
+  }
+}
+@-webkit-keyframes wheels {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes wheels {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
